@@ -10,5 +10,25 @@
 <body>
     <h1>SCOOTER MANAGEMENT</h1>
     
+    <form method="post">
+        <input type="text" id="serialNumber" placeholder="Serial number" required>
+
+        <input type="text" id="model" placeholder="Model" required>
+
+        <input type="number" id="bettaryLevel" placeholder="bettary level" min="0" max="100" required>
+
+        <input type="text" id="scooterColor" placeholder="Scooter color" required>
+
+        <input type="url" id="imageUrl" placeholder="Image url" required>
+        
+        <select id="status" required>
+            <option value="">Select status</option>
+            <option value="available">available</option>
+            <option value="inRepair">inRepair</option>
+            <option value="unavailable">unavailable</option>
+        </select>
+        
+        <button type="submit" id="scooterSubmit" name="scooterSubmit">Submit</button>
+    </form>
 </body>
 </html>

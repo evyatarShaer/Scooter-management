@@ -1,12 +1,4 @@
-interface Scooter {
-    id?: string;
-    serialNumber: string;
-    model: string;
-    betteryLevel: number;
-    imageUrl: string;
-    color: string;
-    status: 'available' | 'inRepair' | 'unavailable';
-};
+import { Scooter } from './scooter';
 
 
 const scooter_url = "https://66ea929f55ad32cda47979eb.mockapi.io/api/v1/scooters";
@@ -70,10 +62,34 @@ const updateScooter = async (scooter: Scooter): Promise<Scooter> => {
     });
 
     if (!response.ok) {
-        throw new Error('Failed to update shoe');
+        throw new Error('Failed to update scooter');
     }
-    //console.log('Shoe updated successfully');
+    console.log('Scooter updated successfully');
     
     return response.json();
 }
 
+const upScooter: Scooter = {
+    id: "1",
+    serialNumber: "ABC123",
+    model: "Honda stam",
+    betteryLevel: 75,
+    imageUrl: "https://example.com/image1.jpg",
+    color: "blue",
+    status: "available"
+}
+
+//updateScooter(upScooter);
+
+const deleteScooter = async (scooterId: string): Promise<void> => {
+    const response = await fetch(`${scooter_url}/${scooterId}`, {
+        method: 'DELETE',
+    });
+
+    if (!response.ok) {
+        throw new Error('Failed to delete scooter');
+    }
+    console.log('Scooter deleted successfully');
+}
+
+//deleteScooter("1");
